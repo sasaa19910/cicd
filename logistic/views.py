@@ -22,4 +22,7 @@ class StockViewSet(ModelViewSet):
     filterset_fields = ['products']
 
 
+@api_view(['GET'])
+def sample_view(request):
+    return Response('Проверкаа')
 
