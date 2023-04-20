@@ -45,13 +45,13 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Линтинг кода
-        run: flake8 .\logistic\ --exclude=logistic.\migrations    
+        run: flake8 logistic/ --exclude=logistic/migrations/
 
       - name: Тестинг
         run: python manage.py test
         env:
           SECRET_KEY: ${{ env.SECRET_KEY }}
-          DEBUG: "0"
+          DEBUG: ${{ env.DEBUG }}
           ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
           DB_NAME: ${{ env.DB_NAME }}
           DB_USER: ${{ env.DB_USER }}
